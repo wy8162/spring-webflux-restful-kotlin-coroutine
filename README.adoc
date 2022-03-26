@@ -1,15 +1,25 @@
+== Sample Code for Spring WebFlux Kotlin RESTful
+
+=== What Included
+
+. Controller Based REST
+. Functional Endpoint REACTIVE REST
+. Functional Endpoint COROUTINE
+
+=== SWAGGER
+
 http://localhost:8080/swagger-ui.html[SWAGGER UI]
 
 http://localhost:8080/v3/api-docs/[SWAGGER API DOC]
 
-=== Method 1
+==== Method 1
 
 1. Add the Springdoc dependency.
 2. Configure Springdoc Swagger 3.0 in application.yml.
 3. Optional: create bean OpenAPI as done in OpenApiConfig.
 4. Use org.springdoc.webflux.core.fn.SpringdocRouteBuilder.route to configure RouterFounction endpoints. See example RouteOpenAPISpringdoc.
 
-=== Method 2
+==== Method 2
 Adding OpenAPI anonations to the functional endpoints directly. See branch openapi_explict_annotation.
 
 Springdoc plugin springdoc-openapi-maven-plugin can be used to generate OpenAPI JSON descriptions.
