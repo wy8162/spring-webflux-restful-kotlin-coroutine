@@ -19,7 +19,28 @@ class RouteCoroutineConfiguration constructor(val userHandler: UserCoroutineHand
             operation = Operation(
                 operationId = "getUserById",
                 summary = "Coroutine Functional Endpoint - Get User By Id",
-                tags = ["MyAccounts"],
+                tags = ["Coroutine Functional Endpoints"],
+                parameters = [Parameter(
+                    `in` = ParameterIn.PATH,
+                    name = "id",
+                    description = "User Id"
+                )],
+                responses = [ApiResponse(
+                    responseCode = "200",
+                    description = "successful operation",
+                    content = [Content(schema = Schema(implementation = User::class))]
+                ), ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid ID supplied"
+                ), ApiResponse(responseCode = "404", description = "User not found")]
+            )
+        ),
+        RouterOperation(
+            path = "/api/coroutine/user/via/{id}",
+            operation = Operation(
+                operationId = "getUserByIdDeferred",
+                summary = "Coroutine Functional Endpoint, call /api/controller/user/{id} - Get User By Id",
+                tags = ["Coroutine Functional Endpoints"],
                 parameters = [Parameter(
                     `in` = ParameterIn.PATH,
                     name = "id",
@@ -41,9 +62,12 @@ class RouteCoroutineConfiguration constructor(val userHandler: UserCoroutineHand
             GET("/{id}") {
                 val id = it.pathVariable("id")
                 userHandler.getUserById(id)
+            }
+            GET("/via/{id}") {
+                val id = it.pathVariable("id")
 
-                // We can also call the other service as well
-                //userHandler.getUserByIdDeferred(id)
+                // Call the other service to get a User
+                userHandler.getUserByIdDeferred(id)
             }
         }
     }

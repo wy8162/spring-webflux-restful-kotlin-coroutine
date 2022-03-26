@@ -19,7 +19,7 @@ class RouteConfiguration constructor(val userHandler: UserHandler) {
             operation = Operation(
                 operationId = "getUserById",
                 summary = "Functional Endpoint - Get User By Id",
-                tags = ["MyAccounts"],
+                tags = ["Functional Endpoints"],
                 parameters = [Parameter(
                     `in` = ParameterIn.PATH,
                     name = "id",
