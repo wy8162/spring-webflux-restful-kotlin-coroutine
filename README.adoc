@@ -1,4 +1,29 @@
-== Sample Code for Spring WebFlux Kotlin RESTful
+= Microservice HR Service - Kubernetes and GitOps
+:sectnums:
+:toc:
+:toclevels: 4
+:toc-title: Table of Contents
+
+== Setting up `Kubernetes` Environment
+* Install Microk8s based on the official documents.
+* Enable the following addons
+```
+$ microk8s enable dashboard
+$ microk8s enable dns
+$ microk8s enable storage
+$ microk8s enable registry
+$ microk8s enable istio
+```
+
+* Enable Istio Sidecar for namespaces. I.e.:
+```
+$ kubectl label namespace default istio-injection=enabled
+```
+* Install ArgoCD
+** Following ArgoCD installation guidelines to install ArgoCD.
+
+
+== Sample Service with Spring Webflux and Kotlin
 
 === What Included
 
@@ -12,6 +37,12 @@ http://localhost:8080/swagger-ui.html[SWAGGER UI]
 
 http://localhost:8080/v3/api-docs/[SWAGGER API DOC]
 
+.See the code for samples
+[NOTE]
+====
+Both functional endpoints and controllers.
+====
+
 ==== Method 1
 
 1. Add the Springdoc dependency.
@@ -23,3 +54,8 @@ http://localhost:8080/v3/api-docs/[SWAGGER API DOC]
 Adding OpenAPI anonations to the functional endpoints directly. See branch openapi_explict_annotation.
 
 Springdoc plugin springdoc-openapi-maven-plugin can be used to generate OpenAPI JSON descriptions.
+
+== Sample HR Database Schema and Data
+
+* Source: https://www.sqltutorial.org/sql-sample-database/
+* Also found similar data in GitHub.
