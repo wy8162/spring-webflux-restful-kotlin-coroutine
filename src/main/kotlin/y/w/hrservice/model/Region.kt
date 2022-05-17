@@ -1,15 +1,14 @@
 package y.w.hrservice.model
 
-import javax.persistence.*
+import org.springframework.data.annotation.*
+import org.springframework.data.relational.core.mapping.*
 
-@Entity
-@Table(name = "regions")
+@Table("regions")
 open class Region {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "region_id", nullable = false)
+    @Column("region_id")
     open var id: Int? = null
 
-    @Column(name = "region_name", length = 25)
+    @Column("region_name")
     open var regionName: String? = null
 }

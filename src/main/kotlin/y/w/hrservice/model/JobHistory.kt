@@ -1,23 +1,24 @@
 package y.w.hrservice.model
 
+import org.springframework.data.annotation.*
+import org.springframework.data.relational.core.mapping.*
 import java.time.*
-import javax.persistence.*
 
-@Entity
-@Table(name = "job_history")
+@Table("job_history")
 open class JobHistory {
-    @EmbeddedId
-    open var id: JobHistoryId? = null
+    @Id
+    @Column("job_id")
+    open var id: String? = null
 
-    @MapsId("employeeId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "employee_id", nullable = false)
-    open var employee: Employee? = null
+    @Column("employee_id")
+    open var employeeId: Int? = null
 
-    @Column(name = "end_date", nullable = false)
+    @Column("start_date")
+    open var startDate: Instant? = null
+
+    @Column("end_date")
     open var endDate: Instant? = null
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
-    open var department: Department? = null
+    @Column("department_id")
+    open var departmentId: Int? = null
 }

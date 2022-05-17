@@ -1,21 +1,21 @@
 package y.w.hrservice.model
 
+import org.springframework.data.annotation.*
+import org.springframework.data.relational.core.mapping.*
 import java.math.*
-import javax.persistence.*
 
-@Entity
-@Table(name = "jobs")
+@Table("jobs")
 open class Job {
     @Id
-    @Column(name = "job_id", nullable = false, length = 10)
+    @Column("job_id")
     open var id: String? = null
 
-    @Column(name = "job_title", nullable = false, length = 35)
+    @Column("job_title")
     open var jobTitle: String? = null
 
-    @Column(name = "min_salary", precision = 6)
+    @Column("min_salary")
     open var minSalary: BigDecimal? = null
 
-    @Column(name = "max_salary", precision = 6)
+    @Column("max_salary")
     open var maxSalary: BigDecimal? = null
 }

@@ -1,28 +1,26 @@
 package y.w.hrservice.model
 
-import javax.persistence.*
+import org.springframework.data.annotation.*
+import org.springframework.data.relational.core.mapping.*
 
-@Entity
-@Table(name = "locations")
+@Table("locations")
 open class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "location_id", nullable = false)
+    @Column("location_id")
     open var id: Int? = null
 
-    @Column(name = "street_address", length = 40)
+    @Column("street_address")
     open var streetAddress: String? = null
 
-    @Column(name = "postal_code", length = 12)
+    @Column("postal_code")
     open var postalCode: String? = null
 
-    @Column(name = "city", nullable = false, length = 30)
+    @Column("city")
     open var city: String? = null
 
-    @Column(name = "state_province", length = 25)
+    @Column("state_province")
     open var stateProvince: String? = null
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id")
-    open var country: Country? = null
+    @Column("country_id")
+    open var countryId: String? = null
 }

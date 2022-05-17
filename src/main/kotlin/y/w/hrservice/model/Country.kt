@@ -1,14 +1,14 @@
 package y.w.hrservice.model
 
-import javax.persistence.*
+import org.springframework.data.annotation.*
+import org.springframework.data.relational.core.mapping.*
 
-@Entity
-@Table(name = "countries")
+@Table("countries")
 open class Country {
     @Id
-    @Column(name = "country_id", nullable = false, length = 2)
+    @Column("country_id")
     open var id: String? = null
 
-    @Column(name = "country_name", length = 40)
+    @Column("country_name")
     open var countryName: String? = null
 }

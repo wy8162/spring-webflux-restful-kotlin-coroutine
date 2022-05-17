@@ -55,6 +55,9 @@ Adding OpenAPI anonations to the functional endpoints directly. See branch opena
 
 Springdoc plugin springdoc-openapi-maven-plugin can be used to generate OpenAPI JSON descriptions.
 
+== R2DBC Does Not Support ORM
+See https://javamana.com/2021/01/20210120001209100Y.html[How to deal with the entity relationship of r2dbc in spring project?].
+
 == Sample HR Database Schema and Data
 
 * Source: https://www.sqltutorial.org/sql-sample-database/

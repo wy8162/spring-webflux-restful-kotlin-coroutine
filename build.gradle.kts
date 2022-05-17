@@ -26,7 +26,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.3.5")
 
     // Needed to trigger JPA Buddy
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    // implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")

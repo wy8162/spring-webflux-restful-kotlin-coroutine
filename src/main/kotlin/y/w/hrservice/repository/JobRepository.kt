@@ -1,6 +1,6 @@
 package y.w.hrservice.repository
 
-import org.springframework.data.r2dbc.repository.*
+import org.springframework.data.repository.kotlin.*
 import y.w.hrservice.model.*
 
-interface JobRepository: R2dbcRepository<Job, String>
+interface JobRepository: CoroutineCrudRepository<Job, String>

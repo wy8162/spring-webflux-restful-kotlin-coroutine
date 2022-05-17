@@ -9,7 +9,7 @@ import y.w.hrservice.repository.*
 class EmployeeService(
     private val employeeRepository: EmployeeRepository
 ) {
-    fun getEmployeeById(id: Int): Mono<Employee> {
+    suspend fun getEmployeeById(id: Int): Employee? {
         return employeeRepository.findById(id)
     }
 }

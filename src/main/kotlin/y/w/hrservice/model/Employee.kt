@@ -1,47 +1,44 @@
 package y.w.hrservice.model
 
+import org.springframework.data.annotation.*
+import org.springframework.data.relational.core.mapping.*
 import java.math.*
 import java.time.*
-import javax.persistence.*
 
-@Entity
-@Table(name = "employees")
+@Table(value = "employees")
 open class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id", nullable = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column("employee_id")
     open var id: Int? = null
 
-    @Column(name = "first_name", length = 20)
+    @Column("first_name")
     open var firstName: String? = null
 
-    @Column(name = "last_name", nullable = false, length = 25)
+    @Column("last_name")
     open var lastName: String? = null
 
-    @Column(name = "email", nullable = false, length = 25)
+    @Column("email")
     open var email: String? = null
 
-    @Column(name = "phone_number", length = 20)
+    @Column("phone_number")
     open var phoneNumber: String? = null
 
-    @Column(name = "hire_date", nullable = false)
+    @Column("hire_date")
     open var hireDate: Instant? = null
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "job_id", nullable = false)
-    open var job: Job? = null
+    @Column("job_id")
+    open var jobId: String? = null
 
-    @Column(name = "salary", precision = 8, scale = 2)
+    @Column("salary")
     open var salary: BigDecimal? = null
 
-    @Column(name = "commission_pct", precision = 2, scale = 2)
+    @Column("commission_pct")
     open var commissionPct: BigDecimal? = null
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
-    open var manager: Employee? = null
+    @Column("manager_id")
+    open var managerId: Int? = null
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
-    open var department: Department? = null
+    @Column("department_id")
+    open var departmentId: Int? = null
 }
