@@ -23,15 +23,24 @@ spec:
               name: postgres-data-storage
           env:
             - name: POSTGRES_DB
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_DB
             - name: POSTGRES_USER
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_PASSWORD
           resources:
             limits:
-              memory: 2Gi
-              cpu: "1"
+              memory: 256Mi
+              cpu: "250m"
       volumes:
         - name: postgres-data-storage
           persistentVolumeClaim:

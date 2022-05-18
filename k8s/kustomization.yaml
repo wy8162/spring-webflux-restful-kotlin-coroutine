@@ -1,0 +1,16 @@
+kind: Kustomization
+
+resources:
+  - db/postgres-deployment.yaml
+  - db/postgres-pv.yaml
+  - db/postgres-pvc.yaml
+  - db/postgres-service.yaml
+  - hr/hr-deployment.yaml
+  - hr/hr-service.yaml
+
+configMapGenerator:
+  - name: postgres-config
+    literals:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

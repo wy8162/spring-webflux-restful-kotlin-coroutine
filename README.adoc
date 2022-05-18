@@ -30,10 +30,33 @@ $ kubectl label namespace default istio-injection=enabled
 . Controller Based REST
 . Functional Endpoint REACTIVE REST
 . Functional Endpoint COROUTINE
+. R2DBC
+. PostgreSQL
+
+=== Build Docker Image
+```
+$ ./gradlew bootBuildImage --imageName=hrservice:latest
+$ docker push 192.168.64.3:32000/hrservice:latest
+```
+
+.Microk8s Local Registry
+[NOTE]
+====
+* Enable Microk8s registry addon.
+* If Microk8s runs in VM, find the Microk8s cluster IP address: "kubectl cluster-info". Here, 192.168.64.3 is the IP address in my environment.
+* Use localhost:32000 if Microk8s runs in the host machine.
+* Use localhost:32000/hrservice:latest in the K8s deployment.
+====
 
 === SWAGGER
 
 http://localhost:8080/swagger-ui.html[SWAGGER UI]
+
+.If Deployed in Kubernetes
+[NOTE]
+====
+http://192.168.64.3:30080/swagger-ui.html[SWAGGER UI]
+====
 
 http://localhost:8080/v3/api-docs/[SWAGGER API DOC]
 

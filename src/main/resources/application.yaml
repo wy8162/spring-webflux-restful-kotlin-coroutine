@@ -22,17 +22,17 @@ spring:
     active: dev
     include: dev
   r2dbc:
-    url: r2dbc:postgresql://${POSTGRESQL_HOST:192.168.64.3}:${POSTGRESQL_PORT:30432}/postgres
+    url: r2dbc:postgresql://${POSTGRES_HOST:192.168.64.3}:${POSTGRES_PORT:30432}/postgres
     username: postgres
     password: postgres
   jackson:
     default-property-inclusion: non_null
   liquibase:
     # Liquibase uses JDBC drive
-    url: jdbc:postgresql://${POSTGRESQL_HOST:192.168.64.3}:${POSTGRESQL_PORT:30432}/postgres
+    url: jdbc:postgresql://${POSTGRES_HOST:192.168.64.3}:${POSTGRES_PORT:30432}/${POSTGRES_DB:postgres}
     change-log: classpath:/db/changelog/db.changelog-master.yaml
-    user: postgres
-    password: postgres
+    user: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
 
 server:
   port: 8080
