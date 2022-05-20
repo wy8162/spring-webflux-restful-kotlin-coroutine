@@ -3,10 +3,11 @@ kind: PersistentVolume
 metadata:
   name: postgres-volume
   labels:
+    env: OVERLAY
     type: local
 spec:
   claimRef:
-    namespace: default
+    namespace: hr
     name: postgres-volume-claim
   capacity:
     storage: 5Gi

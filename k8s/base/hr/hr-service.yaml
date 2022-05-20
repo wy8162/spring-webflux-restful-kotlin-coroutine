@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hrservice
+  labels:
+    env: OVERLAY
 spec:
   type: NodePort
   selector:
