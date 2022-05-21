@@ -14,6 +14,8 @@ resources:
   - db/postgres-service.yaml
   - hr/hr-deployment.yaml
   - hr/hr-service.yaml
+  - book-info/bookinfo.yaml
+  - book-info/bookinfo-gateway.yaml
 
 configMapGenerator:
   - name: postgres-config

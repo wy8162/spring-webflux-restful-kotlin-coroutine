@@ -18,7 +18,7 @@ spec:
         - name: hrservice
           image: localhost:32000/hrservice
           ports:
-            - containerPort: 8080
+            - containerPort: 9080
               name: "http"
           env:
             - name: POSTGRES_DB
