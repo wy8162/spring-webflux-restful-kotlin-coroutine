@@ -13,7 +13,18 @@ class HrRouteConfig(
     fun hrServiceRoot(): RouterFunction<ServerResponse> = route()
         .path("/api/v1/employee", this::employeeRoutes)
         .path("/api/v1/job", this::jobRoutes)
+        .path("/healthz", this::healthz)
         .build()
+
+    private fun healthz() = coRouter {
+        ("/ready").nest {
+            GET("") {
+                ServerResponse
+                    .ok()
+                    .bodyValueAndAwait("ok")
+             }
+        }
+    }
 
     private fun employeeRoutes() = coRouter {
         ("/{id}").nest {
