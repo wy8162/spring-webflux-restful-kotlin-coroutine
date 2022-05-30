@@ -4,8 +4,6 @@ kind: Kustomization
 resources:
   - ../../base
 
-nameSuffix: -dev
-
 patches:
 - patch: |-
     - op: replace
@@ -13,9 +11,3 @@ patches:
       value: "dev"
   target:
     labelSelector: "env=OVERLAY"
-- patch: |-
-    - op: replace
-      path: "/spec/claimRef/name"
-      value: "postgres-volume-claim-dev"
-  target:
-      kind: PersistentVolume

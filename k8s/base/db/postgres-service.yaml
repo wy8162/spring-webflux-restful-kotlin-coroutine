@@ -8,6 +8,6 @@ spec:
   selector:
     app: postgres
   ports:
-    - name: "postgres"
+    - name: "tcp-postgres"
       protocol: TCP
       port: 5432
