@@ -10,7 +10,11 @@ spec:
   http:
     - match:
         - uri:
-            prefix: /hrservice
+            exact: /healthz/ready
+        - uri:
+            prefix: /api/v1/employee
+        - uri:
+            prefix: /api/coroutine/user
       route:
         - destination:
             host: hrservice.hr.svc.cluster.local
